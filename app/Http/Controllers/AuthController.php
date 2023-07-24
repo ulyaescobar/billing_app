@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Profile;
 
 class AuthController extends Controller
 {
     // Fungsi untuk menampilkan halaman login
     public function showLoginForm()
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
         return view('auth.login');
     }
 
@@ -55,6 +59,8 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
+
+
         // Redirect ke halaman login dengan pesan sukses
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
     }
@@ -66,5 +72,10 @@ class AuthController extends Controller
 
         // Redirect ke halaman login dengan pesan sukses
         return redirect()->route('login')->with('success', 'Anda telah berhasil logout.');
+    }
+
+    public function redirectToLogin()
+    {
+        return redirect()->route('login');
     }
 }
