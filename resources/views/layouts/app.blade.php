@@ -38,7 +38,13 @@
                             <a class="nav-link" href="{{ route('profile.show') }}">{{ __('Profile') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('transactions.create') }}">{{ __('Transactions') }}</a>
+                            <a class="nav-link" href="{{ route('items.index') }}">{{ __('Product') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('customers.index') }}">{{ __('Customer') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('transactions.index') }}">{{ __('Transactions') }}</a>
                         </li>
                         <li class="nav-item">
                             <span class="nav-link">{{ __('Welcome,') }} {{ Auth::user()->name }}!</span>

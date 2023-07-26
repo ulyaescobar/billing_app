@@ -12,6 +12,6 @@ class Item extends Model
     protected $fillable = ['name', 'stok', 'price'];
 
     public function transactionItems(){
-        return $this->hasMany(TransactionItem::class);
+        return $this->hasMany(TransactionItem::class)->onDelete('cascade');
     }
 }

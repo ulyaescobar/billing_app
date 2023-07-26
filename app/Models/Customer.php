@@ -12,6 +12,6 @@ class Customer extends Model
     protected $fillable = ['name', 'address'];
 
     public function transactions(){
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany(Transaction::class)->onDelete('cascade');
     }
 }
